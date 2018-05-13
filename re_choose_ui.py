@@ -7,21 +7,22 @@ import re
 
 
 def is_match(intv1, intv2, output_date):
-    output_date.delete(0.0, tkinter.END)  # 清屏
-    if not num:
-        try:
-            re_rueslt = re.match(intv1.get(), intv2.get()).group()  # 将窗口１和窗口２数据进行比较
-        except:
-            output_date.insert(1.0, '匹配失败！')
-        else:
-            output_date.insert(1.0, re_rueslt)
-    else:
-        try:
-            re_rueslt = re.match(intv1.get(), intv2.get()).groups()
-        except:
-            output_date.insert(1.0, '匹配失败！')
-        else:
-            output_date.insert(1.0, re_rueslt)
+	num = intv1.get().count('(')
+	output_date.delete(0.0, tkinter.END)  # 清屏
+	if not num:
+		try:
+			re_rueslt = re.match(intv1.get(), intv2.get()).group()  # 将窗口１和窗口２数据进行比较
+		except:
+			output_date.insert(1.0, '匹配失败！')
+		else:
+			output_date.insert(1.0, re_rueslt)
+	else:
+		try:
+			re_rueslt = re.match(intv1.get(), intv2.get()).groups()
+		except:
+			output_date.insert(1.0, '匹配失败！')
+		else:
+			output_date.insert(1.0, re_rueslt)
 
 
 def is_search(intv1, intv2, output_date):
@@ -42,7 +43,6 @@ def is_findall(intv1, intv2, output_date):
         output_date.insert(1.0, '匹配失败！')
     else:
         output_date.insert(1.0, re_rueslt)
-        print(re_rueslt)
 
 
 def is_exit():
